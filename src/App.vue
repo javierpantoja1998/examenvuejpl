@@ -7,9 +7,9 @@
 
 <script>
 import MenuRutas from './components/MenuRutas.vue'
-import Global from './Global';
-import CubosService from './services/CubosService';
-const service = new CubosService;
+//import Global from './Global';
+//import CubosService from './services/CubosService';
+//const service = new CubosService;
 
 export default {
   name: 'App',
@@ -17,13 +17,13 @@ export default {
     MenuRutas
   },
   created(){
-    service.getUsuarios().then(result=>{
-        Global.email= result[0].email;
-        Global.password = result[0].pass.toString();
-        service.postLogin().then(res=>{
-          console.log(res)
-        });
-    })
+    // service.getUsuarios().then(result=>{
+    //     Global.email= result[0].email;
+    //     Global.password = result[0].pass.toString();
+    //     service.postLogin().then(res=>{
+    //       console.log(res)
+    //     });
+    // })
   },
   
 }

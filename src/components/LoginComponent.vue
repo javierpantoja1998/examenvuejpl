@@ -2,7 +2,7 @@
   <div class="vh-100 d-flex justify-content-center align-items-center">
             <div class="col-md-4 p-5 shadow-sm border rounded-3">
                 <h2 class="text-center mb-4 text-primary">Login</h2>
-                <form method="POST" >
+                <form method="post" v-on:submit.prevent="realizarLogin()">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email:</label>
                         <input
@@ -15,7 +15,7 @@
                     </div>
                     <p class="small"><a class="text-primary" href="forget-password.html">Forgot password?</a></p>
                     <div class="d-grid">
-                        <button class="btn btn-primary" type="submit">Login</button>
+                        <button class="btn btn-primary">Login</button>
                     </div>
                 </form>
             </div>
@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import Global from '@/Global';
+import CubosService from '@/services/CubosService';
+const service = new CubosService
 export default {
     name:"LoginComponent",
     data(){
@@ -31,6 +34,19 @@ export default {
                 email:"",
                 password:""
             }
+        }
+    }, methods: {
+        realizarLogin() {
+            
+                Global.email= this.usuario.email;
+                Global.password = this.usuario.password;
+                console.log("Logeeado");
+                service.postLogin().then(res=>{
+                    //TENGO EL TOKEN Y LO GUARDO
+                    console.log(res);
+                    Global.token = res;
+                });
+            //});
         }
     }
     

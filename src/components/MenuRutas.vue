@@ -29,6 +29,16 @@
               LOGIN
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link active" aria-current="page" to="/perfil">
+              PERFIL LOG
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link active" aria-current="page" to="/compras">
+              COMPRAS
+            </router-link>
+          </li>
       </ul>
     
     </div>

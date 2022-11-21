@@ -3,6 +3,8 @@ import HomeComponent from './components/HomeComponent.vue';
 import MarcaComponent from './components/MarcaComponent.vue';
 import DetallesCuboComponent from './components/DetallesCubo.vue';
 import LoginComponent from './components/LoginComponent.vue';
+import PerfilComponent from './components/PerfilComponent.vue';
+import ComprasComponent from './components/ComprasComponent.vue';
 
 const routes = [
 
@@ -19,6 +21,13 @@ const routes = [
     {
         path:"/login" , component:LoginComponent
     },
+    {
+        path:"/perfil" , component:PerfilComponent
+    },
+    {
+        path:"/compras" , component:ComprasComponent
+    }
+
 ]
 
 const router = new createRouter({

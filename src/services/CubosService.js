@@ -46,7 +46,7 @@ export default class CubosService {
         });
     }
     
-    getUsuarios(){
+    getPerfilUsuario(){
         return new Promise(function(resolve){
             var request = "/api/Manage/PerfilUsuario";
             var url = Global.url + request;
@@ -54,7 +54,6 @@ export default class CubosService {
                 resolve(res);
             });
         })
-       
     }
 
     postLogin(){
@@ -63,11 +62,34 @@ export default class CubosService {
                 email:Global.email,
                 password:Global.password
             };
-            var request = "api/Manage/Login";
+            var request = "/api/Manage/Login";
             var url = Global.url + request;
+            console.log(url);
             axios.post(url,usuario).then(res=>{
                 resolve(res.data.response)
             });
+        })
+    }
+
+    getPerfilLogueado(){
+        return new Promise(function(resolve){
+            var request = "​/api​/Manage​/PerfilUsuario";
+            var url = Global.url + request;
+            axios.get(url,{headers:{"Authorization":"Bearer "+Global.token}}).then(res=>{
+                resolve(res.data)
+            })
+            
+        })
+    }
+
+    getCompras(){
+        return new Promise(function(resolve){
+            var request = "/api/Compra/ComprasUsuario";
+            var url = Global.url + request;
+            axios.get(url).then(res=>{
+                resolve(res.data)
+            });
+            
         })
     }
 }
