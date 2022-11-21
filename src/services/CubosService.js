@@ -1,6 +1,7 @@
 import Global from "@/Global";
 import axios from "axios";
 
+
 export default class CubosService {
 
     getCubos(){
@@ -44,8 +45,29 @@ export default class CubosService {
             
         });
     }
+    
+    getUsuarios(){
+        return new Promise(function(resolve){
+            var request = "/api/Manage/PerfilUsuario";
+            var url = Global.url + request;
+            axios.get(url).then(res=>{
+                resolve(res);
+            });
+        })
+       
+    }
 
-    login(){
-        
+    postLogin(){
+        return new Promise(function(resolve){
+            var usuario = {
+                email:Global.email,
+                password:Global.password
+            };
+            var request = "api/Manage/Login";
+            var url = Global.url + request;
+            axios.post(url,usuario).then(res=>{
+                resolve(res.data.response)
+            });
+        })
     }
 }
