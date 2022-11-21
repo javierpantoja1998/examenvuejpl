@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       cubos: [],
-    };
+    }
   },
   mounted() {
     this.loadCubosMarca();
